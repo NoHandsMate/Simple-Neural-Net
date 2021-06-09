@@ -4,6 +4,7 @@
 #include "Math.hpp"
 #include <array>
 #include <string>
+#include <iomanip>
 
 int main()
 {
@@ -14,8 +15,16 @@ int main()
             Neuron<long double>(0.10, 0.20)
     };
 
+	
+	long double target = 0.0;
 
-    constexpr long double target = 0.6; // The "Expected Value"
+	std::cout << "Insert the target value: ";
+	std::cin >> target;
+
+	if(target > 1) {
+		std::cout << "The selected number is too large" << '\n';
+		return -1;
+	}
 
     long double neuron_output = 0.0;
 	
@@ -44,7 +53,7 @@ int main()
 			first_time = false;
 		
 		} else {
-			std::cout << "ERROR: " << error << '\r';
+			std::cout << std::fixed << std::setprecision(20)  << "ERROR: " << error << '\r';
 		}
 		
 
@@ -72,7 +81,7 @@ int main()
 	
 	auto iter = 1000000;
     std::cout << '\n';
-    std::cout << "NEURON OUTPUT: " << neuron_output << '\n';
+    std::cout << "NEURON OUTPUT: " << std::setprecision(5) <<neuron_output << '\n';
     std::cout << "EXPECTED OUTPUT: " << target << '\n';
 	std::cout << "ITERATIONS: " << iterations << '\n'; 
     return 0;

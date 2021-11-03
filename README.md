@@ -1,5 +1,5 @@
 # Simple-Neural-Net
-A simple neural network created for my Esame di Stato
+A simple neural network created for my High School Exam
 
 # How to build
 
